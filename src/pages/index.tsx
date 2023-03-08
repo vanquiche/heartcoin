@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Head from 'next/head';
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
@@ -15,6 +16,18 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <main className={styles.main}>
+        <header>
+          <nav>
+            <ul>
+              <li>
+                <Link href='/'>Home</Link>
+              </li>
+              <li>
+                <Link href='/blog'>Blog</Link>
+              </li>
+            </ul>
+          </nav>
+        </header>
         <h1>Hello World</h1>
       </main>
     </>
