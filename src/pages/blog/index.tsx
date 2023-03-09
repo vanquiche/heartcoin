@@ -1,18 +1,18 @@
-import { getPosts } from '@/lib/getPosts';
-import fs from 'fs';
-import path from 'path';
+import { getAllPostIds } from '@/lib/posts';
+import Link from 'next/link';
 
 export default function Blog({ fileNames }: any) {
-  // console.log(postsDirectory);
-
-  // console.log(fileNames);
   return (
     <>
       <main>
         <h1>All Blogs</h1>
         <ul>
-          {fileNames.map((post: any, i: number) => (
-            <li key={i}>{post}</li>
+          {fileNames.map((fileName: any, i: number) => (
+            <li key={i}>
+              <Link href={`/blog/${fileName.params.id}`}>
+                {fileName.params.id}
+              </Link>
+            </li>
           ))}
         </ul>
       </main>
@@ -21,7 +21,7 @@ export default function Blog({ fileNames }: any) {
 }
 
 export async function getStaticProps() {
-  const fileNames = getPosts();
+  const fileNames = getAllPostIds();
   return {
     props: {
       fileNames,
