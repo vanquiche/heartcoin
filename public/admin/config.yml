@@ -90,6 +90,8 @@ collections:
 
   - name: 'posts'
     label: 'Posts'
+    editor:
+      preview: false
     folder: 'content/blog-posts/'
     extension: 'mdx'
     format: 'frontmatter'
@@ -130,8 +132,10 @@ collections:
         name: 'body'
         widget: 'markdown'
 
-  - name: 'shop item'
-    label: 'Shop Item'
+  - name: 'products'
+    label: 'Products'
+    editor:
+      preview: false
     folder: 'content/shop/'
     extension: 'mdx'
     format: 'frontmatter'
@@ -143,31 +147,33 @@ collections:
       - label: 'Slug'
         name: 'slug'
         widget: 'string'
-      - label: 'Item'
-        name: 'item'
+        hint: 'The part of a URL indentifies the tag'
+      - label: 'Product'
+        name: 'product'
         widget: 'string'
       - label: 'Price'
         name: 'price'
         widget: 'number'
         value_type: 'float'
-        default: 1.00
       - label: 'Sale'
         name: 'sale'
         widget: 'number'
         value_type: 'float'
-        default: 0
+        required: false
       - label: 'Description'
         name: 'description'
         widget: 'markdown'
       - label: 'Thumbnail'
         name: 'thumbnail'
         widget: 'image'
+        required: false
         media_library:
           config:
             multiple: false
       - label: 'Gallery'
         name: 'gallery'
         widget: 'image'
+        required: false
         media_library:
           config:
             multiple: true
