@@ -90,7 +90,7 @@ collections:
 
   - name: 'posts'
     label: 'Posts'
-    folder: 'content/posts/'
+    folder: 'content/blog-posts/'
     extension: 'mdx'
     format: 'frontmatter'
     create: true
@@ -139,3 +139,32 @@ collections:
       - label: 'Body'
         name: 'body'
         widget: 'markdown'
+
+  - name: 'shop'
+    label: 'Shop'
+    folder: 'content/shop/'
+    extension: 'mdx'
+    format: 'frontmatter'
+    create: true
+    slug: '{{slug}}'
+    identifier_field: slug
+    summary: '{{title}}'
+    fields:
+      - label: 'Slug'
+        name: 'slug'
+        widget: 'string'
+      - label: 'Item'
+        name: 'item'
+        widget: 'string'
+      - label: 'Description'
+        name: 'description'
+        widget: 'text'
+      - label: 'Price'
+        name: 'price'
+        widget: 'number'
+        value_type: 'float'
+      - label: 'Sale'
+        name: 'sale'
+        widget: 'number'
+        value_type: 'float'
+        default: 0
