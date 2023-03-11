@@ -160,9 +160,6 @@ collections:
         widget: 'number'
         value_type: 'float'
         required: false
-      - label: 'Description'
-        name: 'description'
-        widget: 'markdown'
       - label: 'Thumbnail'
         name: 'thumbnail'
         widget: 'image'
@@ -179,3 +176,6 @@ collections:
         media_library:
           config:
             multiple: true
+      - label: 'Description'
+        name: 'description'
+        widget: 'markdown'
