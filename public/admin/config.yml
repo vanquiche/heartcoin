@@ -167,6 +167,7 @@ collections:
         name: 'thumbnail'
         widget: 'image'
         required: false
+        choose_url: false
         media_library:
           config:
             multiple: false
@@ -174,6 +175,7 @@ collections:
         name: 'gallery'
         widget: 'image'
         required: false
+        choose_url: false
         media_library:
           config:
             multiple: true
