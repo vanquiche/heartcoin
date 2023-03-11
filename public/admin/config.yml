@@ -110,16 +110,6 @@ collections:
         format: 'YYYY-MM-DD'
         dateFormat: 'YYYY-MM-DD'
         timeFormat: false
-      - label: Author
-        name: 'author'
-        widget: relation
-        collection: 'meta'
-        file: 'authors'
-        searchFields:
-          - 'authors.*.name'
-        displayFields:
-          - 'authors.*.name'
-        valueField: 'authors.*.slug'
       - label: Tags
         label_singular: 'Tag'
         name: 'tags'
@@ -140,8 +130,8 @@ collections:
         name: 'body'
         widget: 'markdown'
 
-  - name: 'shop'
-    label: 'Shop'
+  - name: 'shop item'
+    label: 'Shop Item'
     folder: 'content/shop/'
     extension: 'mdx'
     format: 'frontmatter'
@@ -156,15 +146,28 @@ collections:
       - label: 'Item'
         name: 'item'
         widget: 'string'
-      - label: 'Description'
-        name: 'description'
-        widget: 'text'
       - label: 'Price'
         name: 'price'
         widget: 'number'
         value_type: 'float'
+        default: 1.00
       - label: 'Sale'
         name: 'sale'
         widget: 'number'
         value_type: 'float'
         default: 0
+      - label: 'Description'
+        name: 'description'
+        widget: 'markdown'
+      - label: 'Thumbnail'
+        name: 'thumbnail'
+        widget: 'image'
+        media_library:
+          config:
+            multiple: false
+      - label: 'Gallery'
+        name: 'gallery'
+        widget: 'image'
+        media_library:
+          config:
+            multiple: true

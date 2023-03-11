@@ -7,7 +7,6 @@ export interface PostIds {
 export interface Meta {
   slug: string;
   title: string;
-  author: string;
   date: string;
   tags: string[];
 }
