@@ -176,6 +176,6 @@ collections:
         media_library:
           config:
             multiple: true
-      - label: 'Body'
-        name: 'description'
+      - label: 'Description'
+        name: 'body'
         widget: 'markdown'
