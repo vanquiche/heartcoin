@@ -3,11 +3,13 @@ import path from 'path';
 import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
+import { PostData, PostIds } from '@/types';
 
-const postsDirectory = path.join(process.cwd(), 'content/posts');
+const postsDirectory = path.join(process.cwd(), 'content/blog-posts');
 
-export function getAllPostIds() {
-  const fileNames = fs.readdirSync(postsDirectory);
+export function getAllPostIds(): PostIds[] {
+  // read all files in post directory
+  const fileNames: string[] = fs.readdirSync(postsDirectory);
   return fileNames.map((fileName) => {
     return {
       params: {
@@ -17,28 +19,21 @@ export function getAllPostIds() {
   });
 }
 
-export function getPostData(id: any) {
+export async function getPostData(id: string): Promise<PostData> {
+  // get path of file
   const fullPath = path.join(postsDirectory, id);
+  // read md file
   const fileContent = fs.readFileSync(fullPath, 'utf8');
-
+  // parse front matter
   const matterResult = matter(fileContent);
+  // proccess md to html
+  const processContent = await remark().use(html).process(matterResult.content);
+
+  const contentHtml = processContent.toString();
 
   return {
     id,
-    ...matterResult.data,
+    contentHtml,
+    meta: JSON.parse(JSON.stringify(matterResult.data)),
   };
 }
-
-// export function getPostContent(path: string) {
-//   const filePath = postsDirectory + '/' + path;
-//   const fileContent = fs.readFileSync(filePath, 'utf8');
-//   const matterResult = matter(fileContent);
-
-//   return matterResult;
-// }
-
-// export async function renderMarkdown(content: any) {
-//   const processContent = await remark().use(html).process(content);
-//   const contentHtml = processContent.toString();
-//   return contentHtml;
-// }

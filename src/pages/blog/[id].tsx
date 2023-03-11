@@ -1,11 +1,15 @@
-import React from 'react';
 import { getAllPostIds, getPostData } from '@/lib/posts';
+import { PostData } from '@/types';
+import { parseISO, format } from 'date-fns';
 
-export default function Blog({ postData }: any) {
+export default function Blog({ postData }: { postData: PostData }) {
+  const date = parseISO(postData.meta.date);
   return (
-    <div>
-      <h1>{postData.title}</h1>
-    </div>
+    <article>
+      <h1>{postData.meta.title}</h1>
+      <p>Published: {format(date, 'LLLL d, yyyy')}</p>
+      <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+    </article>
   );
 }
 
@@ -18,7 +22,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }: any) {
-  const postData = getPostData(params.id);
+  const postData = await getPostData(params.id);
   return {
     props: {
       postData,
