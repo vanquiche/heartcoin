@@ -164,7 +164,7 @@ collections:
         value_type: 'float'
         required: false
       - label: 'Thumbnail'
-        name: 'thumbnail'
+        name: 'image'
         widget: 'image'
         required: false
         choose_url: false
@@ -172,7 +172,7 @@ collections:
           config:
             multiple: false
       - label: 'Gallery'
-        name: 'gallery'
+        name: 'image'
         widget: 'image'
         required: false
         choose_url: false
