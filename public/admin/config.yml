@@ -163,22 +163,6 @@ collections:
         widget: 'number'
         value_type: 'float'
         required: false
-      - label: 'Thumbnail'
-        name: 'image'
-        widget: 'image'
-        required: false
-        choose_url: false
-        media_library:
-          config:
-            multiple: false
-      - label: 'Gallery'
-        name: 'image'
-        widget: 'image'
-        required: false
-        choose_url: false
-        media_library:
-          config:
-            multiple: true
       - label: 'Description'
         name: 'body'
         widget: 'markdown'
