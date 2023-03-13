@@ -1,9 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { remark } from 'remark';
-import html from 'remark-html';
 import { PostData, PostIds } from '@/types';
+import { serialize } from 'next-mdx-remote/serialize';
 
 const postsDirectory = path.join(process.cwd(), 'content/blog-posts');
 
@@ -27,13 +26,11 @@ export async function getPostData(id: string): Promise<PostData> {
   // parse front matter
   const matterResult = matter(fileContent);
   // proccess md to html
-  const processContent = await remark().use(html).process(matterResult.content);
-
-  const contentHtml = processContent.toString();
+  const processContent = await serialize(matterResult.content);
 
   return {
     id,
-    contentHtml,
+    contentHtml: processContent,
     meta: JSON.parse(JSON.stringify(matterResult.data)),
   };
 }

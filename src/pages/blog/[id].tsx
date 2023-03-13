@@ -1,14 +1,34 @@
 import { getAllPostIds, getPostData } from '@/lib/posts';
 import { PostData } from '@/types';
 import { parseISO, format } from 'date-fns';
+import { MDXRemote } from 'next-mdx-remote';
+import Image from 'next/image';
 
-export default function Blog({ postData }: { postData: PostData }) {
-  const date = parseISO(postData.meta.date);
+const Heading = (props: any) => {
+  return <h2 style={{ color: 'tomato' }}>{props.children}</h2>;
+};
+
+const components = {
+  h2: (props: any) => <Heading {...props} />,
+  img: (props: any) => (
+    <Image
+      style={{ objectFit: 'contain' }}
+      src={props.src}
+      alt={props.alt}
+      width={700}
+      height={700}
+      loading='lazy'
+    />
+  ),
+};
+
+export default function Blog({ source }: { source: PostData }) {
+  const date = parseISO(source.meta.date);
+  // console.log(source.contentHtml);
   return (
     <article>
-      <h1>{postData.meta.title}</h1>
       <p>Published: {format(date, 'LLLL d, yyyy')}</p>
-      <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+      {source && <MDXRemote {...source.contentHtml} components={components} />}
     </article>
   );
 }
@@ -22,10 +42,10 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }: any) {
-  const postData = await getPostData(params.id);
+  const source = await getPostData(params.id);
   return {
     props: {
-      postData,
+      source,
     },
   };
 }

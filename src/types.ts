@@ -1,3 +1,5 @@
+import { MDXRemoteSerializeResult } from 'next-mdx-remote';
+
 export interface PostIds {
   params: {
     id: string;
@@ -14,5 +16,5 @@ export interface Meta {
 export interface PostData {
   id: string;
   meta: Meta;
-  contentHtml: string;
+  contentHtml: MDXRemoteSerializeResult;
 }
