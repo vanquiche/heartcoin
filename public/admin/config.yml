@@ -6,6 +6,10 @@ media_library:
   config:
     cloud_name: dvrs8gsj3
     api_key: 778222115954725
+    default_transformations:
+      - - fetch_format: auto
+          quality: auto
+          crop: scale
 publish_mode: editorial_workflow
 
 collections:
