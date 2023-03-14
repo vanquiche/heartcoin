@@ -97,8 +97,6 @@ collections:
 
   - name: 'posts'
     label: 'Posts'
-    editor:
-      preview: true
     folder: 'content/blog-posts/'
     extension: 'mdx'
     format: 'frontmatter'
