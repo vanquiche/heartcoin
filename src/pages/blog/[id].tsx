@@ -28,7 +28,7 @@ export default function Blog({ source }: { source: PostData }) {
   return (
     <article>
       <p>Published: {format(date, 'LLLL d, yyyy')}</p>
-      {source && <MDXRemote {...source.contentHtml} components={components} />}
+      {source && <MDXRemote {...source.contentHtml} />}
     </article>
   );
 }
