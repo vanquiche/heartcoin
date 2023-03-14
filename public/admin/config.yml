@@ -99,12 +99,12 @@ collections:
     label: 'Posts'
     editor:
       preview: true
-    folder: 'content/blog-posts/'
-    preview_path: blog-posts/{{slug}}
+    folder: 'content/blog/'
+    slug: '{{slug}}'
+    preview_path: blog/{{slug}}
     extension: 'mdx'
     format: 'frontmatter'
     create: true
-    slug: '{{slug}}'
     identifier_field: slug
     summary: '{{title}}'
     fields:

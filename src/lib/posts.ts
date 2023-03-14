@@ -4,7 +4,7 @@ import matter from 'gray-matter';
 import { PostData, PostIds } from '@/types';
 import { serialize } from 'next-mdx-remote/serialize';
 
-const postsDirectory = path.join(process.cwd(), 'content/blog-posts');
+const postsDirectory = path.join(process.cwd(), 'content/blog');
 
 export function getAllPostIds(): PostIds[] {
   // read all files in post directory
