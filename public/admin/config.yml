@@ -110,7 +110,6 @@ collections:
       - label: 'Slug'
         name: 'slug'
         widget: 'string'
-        preview: false
       - label: 'Title'
         name: 'title'
         widget: 'string'
