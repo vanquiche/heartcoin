@@ -101,9 +101,6 @@ collections:
       preview: true
     folder: 'content/blog/'
     slug: '{{slug}}'
-      encoding: 'ascii'
-      clean_accents: true
-      sanitize_replacements: '-'
     preview_path: blog/{{slug}}
     extension: 'mdx'
     format: 'frontmatter'
@@ -152,9 +149,6 @@ collections:
     format: 'frontmatter'
     create: true
     slug: '{{slug}}'
-      encoding: 'ascii'
-      clean_accents: true
-      sanitize_replacements: '-'
     identifier_field: slug
     summary: '{{product}}'
     fields:
