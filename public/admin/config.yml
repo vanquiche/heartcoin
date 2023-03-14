@@ -99,8 +99,8 @@ collections:
     label: 'Posts'
     editor:
       preview: true
-    preview_path: blog/{{slug}}
     folder: 'content/blog-posts/'
+    preview_path: blog-posts/{{slug}}
     extension: 'mdx'
     format: 'frontmatter'
     create: true
