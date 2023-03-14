@@ -98,7 +98,7 @@ collections:
   - name: 'posts'
     label: 'Posts'
     editor:
-      preview: false
+      preview: true
     folder: 'content/blog-posts/'
     extension: 'mdx'
     format: 'frontmatter'
@@ -110,6 +110,7 @@ collections:
       - label: 'Slug'
         name: 'slug'
         widget: 'string'
+        preview: false
       - label: 'Title'
         name: 'title'
         widget: 'string'
