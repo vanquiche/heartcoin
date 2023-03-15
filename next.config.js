@@ -2,9 +2,8 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['res.cloudinary.com'],
-    loader: 'akamai',
-    path: '/',
+    loader: 'cloudinary',
+    path: 'https://res.cloudinary.com/dvrs8gsj3/image/upload',
   },
 };
 

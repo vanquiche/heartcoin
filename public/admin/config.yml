@@ -3,6 +3,7 @@ backend:
   branch: main
 media_library:
   name: cloudinary
+  output_filename_only: true
   config:
     cloud_name: dvrs8gsj3
     api_key: 778222115954725
